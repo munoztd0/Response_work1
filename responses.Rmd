@@ -230,7 +230,7 @@ lapply(na.omit(df_log1p[diff_names]), moments::skewness) # here we see NO NA app
 ```
 
 ### Modeling
-```{r, warning=F}
+```{r, warning=F, message =F}
 ## Create a formula for a model with a large number of variables:
 fmla <- as.formula(paste(" `1` ~ intervention + ", paste0(sprintf("`%s`",  diff_names[c(-1,-2)]), collapse= "+"), " + Error(id)"))
 
@@ -252,8 +252,8 @@ pes_ci(fmla, data= na.omit(df_out), factorize = F)
 ### Plot interaction (with class)
 ```{r}
 #this is just stuff to make the formating nice
-averaged_theme <- theme_bw(base_size = 32, base_family = "Helvetica")+
-    theme(strip.text.x = element_text(size = 32, face = "bold"),
+averaged_theme <- theme_bw(base_size = 24, base_family = "Helvetica")+
+    theme(strip.text.x = element_text(size = 24, face = "bold"),
           strip.background = element_rect(color="white", fill="white", linetype="solid"),
           legend.position=c(.9,.9),
           legend.title  = element_text(size = 12),
@@ -263,8 +263,8 @@ averaged_theme <- theme_bw(base_size = 32, base_family = "Helvetica")+
           panel.grid.major.x = element_blank() ,
           panel.grid.major.y = element_line(size=.2, color="lightgrey") ,
           panel.grid.minor = element_blank(),
-          axis.title.x = element_text(size = 30),
-          axis.title.y = element_text(size =  30),
+          axis.title.x = element_text(size = 22),
+          axis.title.y = element_text(size = 22),
           axis.line = element_line(size = 0.5),
           panel.border = element_blank())
   
