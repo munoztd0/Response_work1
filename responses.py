@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 from plotnine import *
+import sklearn 
 #%matplotlib inline
 
 import warnings
@@ -51,6 +52,11 @@ ggplot(data_longer)+ \
     labs(title = "Boxplot by group")+ \
     ylab("predictors") + xlab('')
 
+
+#scaling
+scaler = preprocessing.StandardScaler() # from sklearn
+data_long[var_string] = scaler.fit_transform(data_long[var_string])
+data_long.head()
 
 
 
